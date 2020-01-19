@@ -2,5 +2,5 @@ ezmk/node_modules
 ezmk-test/build
 ezmk-test/entt.git
 .DS_Store
-ezmk/lib
+ezmk/bin
 .vscode

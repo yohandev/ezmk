@@ -1,1 +1,0 @@
-export type target = 'osx-debug' | 'osx-release' | 'win32-debug' | 'win32-release';
