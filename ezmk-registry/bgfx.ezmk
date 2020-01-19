@@ -6,28 +6,30 @@ author: https://github.com/bkaradzic
 license: BSD 2-Clause
 
 # repos
-git: [ "https://github.com/bkaradzic/bgfx", "https://github.com/bkaradzic/bx", "https://github.com/bkaradzic/bimg" ]
+git: [ 'https://github.com/bkaradzic/bgfx', 'https://github.com/bkaradzic/bx', 'https://github.com/bkaradzic/bimg' ]
 
 # project
 source: src/
 include: include/
 
 # build
-build(mac-debug): [ "cd bgfx", "make osx-debug64" ]
-build(mac-release): [ "cd bgfx", "make osx-release64" ]
-build(win32-debug): [ "cd bgfx", "make vs2017-debug32" ]
-build(win32-release): [ "cd bgfx", "make vs2017-release32" ]
-build(win64-debug): [ "cd bgfx", "make vs2017-debug64" ]
-build(win64-release): [ "cd bgfx", "make vs2017-release64" ]
-build(linux-debug): [ "cd bgfx", "make linux-debug64" ]
-build(linux-release): [ "cd bgfx", "make linux-release64" ]
+build:
+  mac-debug: [ 'cd bgfx', 'make osx-debug64' ]
+  mac-release: [ 'cd bgfx', 'make osx-release64' ]
+  win32-debug: [ 'cd bgfx', 'make vs2017-debug32' ]
+  win32-release: [ 'cd bgfx', 'make vs2017-release32' ]
+  win64-debug: [ 'cd bgfx', 'make vs2017-debug64' ]
+  win64-release: [ 'cd bgfx', 'make vs2017-release64' ]
+  linux-debug: [ 'cd bgfx', 'make linux-debug64' ]
+  linux-release: [ 'cd bgfx', 'make linux-release64' ]
 
 # binaries
-binary(mac-debug): bgfx/.build/osx64_clang/bin/libbgfx-shared-libDebug.dylib
-binary(mac-release): bgfx/.build/osx64_clang/bin/libbgfx-shared-libRelease.dylib
-# TODO binary(win32-debug)
-# TODO binary(win32-release)
-# TODO binary(win64-debug)
-# TODO binary(win64-release)
-# TODO binary(linux-debug)
-# TODO binary(linux-release)
+binary:
+  mac-debug: 'bgfx/.build/osx64_clang/bin/libbgfx-shared-libDebug.dylib'
+  mac-release: 'bgfx/.build/osx64_clang/bin/libbgfx-shared-libRelease.dylib'
+  # TODO win32-debug
+  # TODO win32-release
+  # TODO win64-debug
+  # TODO win64-release
+  # TODO linux-debug
+  # TODO linux-release

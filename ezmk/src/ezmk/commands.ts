@@ -23,21 +23,30 @@ export namespace command
      */
     export function run(name: string, args: string[]): void
     {
+        find(name).handler(args);
+    }
+
+    /**
+     * Find a function
+     */
+    export function find(name: string): template
+    {
         const found = list.find(val => val.name === name);
         
-        // command not found
-        if (!found)
+        // command found
+        if (found)
         {
-            return error();
+            return found;
         }
-        found.handler(args);
+        return error();
     }
 
     /**
      * Unknown functon
      */
-    function error(): void
+    function error(): any
     {
         console.log(chalk.redBright("unknown command. use 'ezmk help' for a list of commands"));
+        process.exit();
     }
 }

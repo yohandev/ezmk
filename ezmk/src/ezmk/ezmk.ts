@@ -1,5 +1,6 @@
 import { command } from './commands';
 import './help';
+import './build';
 
 /**
  * All the supported build targets
