@@ -3,3 +3,4 @@ ezmk-test/build
 ezmk-test/entt.git
 .DS_Store
 ezmk/lib
+.vscode
