@@ -1,6 +1,5 @@
-node_modules
-node_modules
+ezmk/node_modules
 ezmk-test/build
 ezmk-test/entt.git
 .DS_Store
-lib
+ezmk/lib
