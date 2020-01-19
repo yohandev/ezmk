@@ -1,0 +1,41 @@
+{
+  "name": "ezmk",
+  "version": "1.0.0",
+  "description": "easy make(ezmk) --> easily build your c/c++ projects",
+  "main": "./lib/index.js",
+  "bin": {
+    "ezmk": "./lib/index.js"
+  },
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec \"npm run build\"",
+    "create": "npm run build && npm run test",
+    "build": "tsc -p .",
+    "test": "sudo npm i -g && ezmk",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "author": "nahoy",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "command-exists": "^1.2.8",
+    "commander": "^4.1.0",
+    "fs": "0.0.1-security",
+    "hasbin": "^1.2.3",
+    "nodegit": "^0.26.4",
+    "path": "^0.12.7",
+    "readline-sync": "^1.4.10",
+    "replace-ext": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/clear": "^0.1.0",
+    "@types/command-exists": "^1.2.0",
+    "@types/node": "^13.1.6",
+    "@types/nodegit": "^0.26.1",
+    "@types/readline-sync": "^1.4.3",
+    "@types/replace-ext": "0.0.27",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.1",
+    "typescript": "^3.7.4"
+  }
+}

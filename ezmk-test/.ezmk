@@ -1,0 +1,17 @@
+# ezmk internal file
+# DO NOT EDIT
+
+lib bgfx
+    git https://github.com/bkaradzic/bgfx
+    git https://github.com/bkaradzic/bx
+    git https://github.com/bkaradzic/bimg
+    build osx-debug
+        cd bgfx
+        make osx-debug64
+        cd .build/osx64_clang/bin
+        libbgfx-shared-libRelease.dylib
+    build osx-release
+        cd bgfx
+        make osx-release64
+        cd .build/osx64_clang/bin
+        libbgfx-shared-libDebug.dylib
