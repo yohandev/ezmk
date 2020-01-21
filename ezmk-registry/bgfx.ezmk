@@ -1,3 +1,7 @@
+# internal
+# DO NOT EDIT
+usage: 0
+
 # meta
 name: bgfx
 description: Cross-platform, graphics API agnostic, "Bring Your Own Engine/Framework" style rendering library.
@@ -9,8 +13,7 @@ license: BSD 2-Clause
 git: [ 'https://github.com/bkaradzic/bgfx', 'https://github.com/bkaradzic/bx', 'https://github.com/bkaradzic/bimg' ]
 
 # project
-source: src/
-include: include/
+include: bgfx/include/
 
 # build
 build:
@@ -27,9 +30,9 @@ build:
 binary:
   mac-debug: 'bgfx/.build/osx64_clang/bin/libbgfx-shared-libDebug.dylib'
   mac-release: 'bgfx/.build/osx64_clang/bin/libbgfx-shared-libRelease.dylib'
-  # TODO win32-debug
-  # TODO win32-release
-  # TODO win64-debug
-  # TODO win64-release
-  # TODO linux-debug
-  # TODO linux-release
+  win32-debug: 'TODO'
+  win32-release: 'TODO'
+  win64-debug: 'TODO'
+  win64-release: 'TODO'
+  linux-debug: 'TODO'
+  linux-release: 'TODO'

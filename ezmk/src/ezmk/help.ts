@@ -7,7 +7,7 @@ import chalk from 'chalk';
 command.list.push( 
 {
     name: 'help',
-    args: '',
+    args: '<command?>',
     desc: 'print a list of ezmk commands',
     handler: args =>
     {

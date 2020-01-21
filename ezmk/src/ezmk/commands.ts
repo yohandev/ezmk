@@ -3,7 +3,7 @@ import chalk from "chalk";
 export namespace command
 {
     /**
-     * Template for a command
+     * template for a command
      */
     export interface template
     {
@@ -14,12 +14,12 @@ export namespace command
     }
 
     /**
-     * List of all commands
+     * list of all commands
      */
     export const list: template[] = [];
 
     /**
-     * Run a command
+     * run a command
      */
     export function run(name: string, args: string[]): void
     {
@@ -27,7 +27,7 @@ export namespace command
     }
 
     /**
-     * Find a function
+     * find a command
      */
     export function find(name: string): template
     {
@@ -42,7 +42,7 @@ export namespace command
     }
 
     /**
-     * Unknown functon
+     * unknown command
      */
     function error(): any
     {

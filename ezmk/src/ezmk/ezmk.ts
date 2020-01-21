@@ -1,9 +1,10 @@
 import { command } from './commands';
 import './help';
 import './build';
+import { meta } from './meta';
 
 /**
- * All the supported build targets
+ * all the supported build targets
  */
 export type target = 
     'mac-debug'   | 'mac-release'   |
@@ -12,7 +13,7 @@ export type target =
     'linux-debug' | 'linux-release' ;
 
 /**
- * Run ezmk
+ * run ezmk
  */
 export default function ezmk(args: string[])
 {
