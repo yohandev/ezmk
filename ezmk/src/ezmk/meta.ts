@@ -3,7 +3,7 @@ import os from 'os';
 import yaml from 'js-yaml';
 import path from 'path';
 import chalk from 'chalk';
-import { target, targets } from './ezmk';
+import { targets } from './targets';
 
 export namespace meta
 {
@@ -22,8 +22,9 @@ export namespace meta
      */
     export class data
     {
-        private readonly root: string;
         private readonly file: any;
+
+        public readonly root: string;
 
         public readonly name: string;
         public readonly description: string;
@@ -37,15 +38,15 @@ export namespace meta
         public readonly source: string[];
         public readonly include: string[];
 
-        public readonly build: { [key in target]: string[] };
-        public readonly binary: { [key in target]: string[] };
+        public readonly build: { [key in targets.type]: string[] };
+        public readonly binary: { [key in targets.type]: string[] };
 
 
         constructor(fp: string | undefined)
         {
-            this.root = fp ? path.dirname(fp) : process.cwd();
             this.file = fp ? yaml.safeLoad(fs.readFileSync(fp, 'UTF8')) : undefined;
             
+            this.root = fp ? path.dirname(fp) : process.cwd();
 
             this.name = this.infer_name();
             this.description = this.infer_description();
@@ -108,8 +109,7 @@ export namespace meta
 
             // infer
             return ["src", "source", "sources", "Source", "Sources", "Src", "SRC"]
-                .filter(p => fs.existsSync(path.join(this.root, p)))
-                .map(p => path.join(this.root, p));
+                .filter(p => fs.existsSync(path.join(this.root, p)));
         }
 
         private infer_include(): string[]
@@ -122,36 +122,35 @@ export namespace meta
 
             // infer
             let out = ["inc", "include", "Include", "Inc", "INC"]
-                .filter(p => fs.existsSync(path.join(this.root, p)))
-                .map(p => path.join(this.root, p));
-            
+                .filter(p => fs.existsSync(path.join(this.root, p)));
+                           
             // use src folder if no explicit inc
             return out.length === 0 ? this.source : out;
         }
 
-        private infer_build(): { [key in target]: string[] }
+        private infer_build(): { [key in targets.type]: string[] }
         {
             // create empty
-            let out = { } as { [key in target]: string[] };
+            let out = { } as { [key in targets.type]: string[] };
 
             // set build actions
             for (let p in this.file?.build)
             {
-                out[p as target] = [].concat(this.file.build[p]);
+                out[p as targets.type] = [].concat(this.file.build[p]);
             }
             return out;
         }
 
-        private infer_binary(): { [key in target]: string[] }
+        private infer_binary(): { [key in targets.type]: string[] }
         {
             // create empty
-            let out = { } as { [key in target]: string[] };
+            let out = { } as { [key in targets.type]: string[] };
 
             // set build actions
-            targets.forEach(p =>
+            for (let p in this.file?.binary)
             {
-                out[p] = [].concat(this.file?.binary?.[p] ?? path.join(this.root, 'build', p, 'bin', this.name + '.dylib'));
-            });
+                out[p as targets.type] = [].concat(this.file.binary[p]);
+            }
             return out;
         }
     }
