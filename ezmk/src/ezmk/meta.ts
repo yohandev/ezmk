@@ -161,7 +161,7 @@ export namespace meta
      */
     function find(dir: fs.PathLike): data
     {
-        let found = fs.readdirSync(dir).find(f => path.extname(f) === '.ezmk');
+        let found = fs.readdirSync(dir).find(f => path.extname(f) === '.ezmk' || path.basename(f) === '.ezmk');
         if (!found) // inform user .ezmk file is optional but recommended
         {
             console.log
