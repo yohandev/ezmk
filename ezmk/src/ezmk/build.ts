@@ -11,6 +11,6 @@ command.list.push(
     desc: 'build the project',
     handler: args =>
     {
-        console.log(meta.get_data().name);
+        console.log(meta.get_data().binary);
     }
 });

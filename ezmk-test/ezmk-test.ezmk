@@ -6,6 +6,4 @@ author: https://github.com/NahoyGames
 license: ISC
 
 # project
-source: src/
-include: src/
 dependencies: [ 'bgfx' ]

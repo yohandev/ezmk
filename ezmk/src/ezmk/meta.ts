@@ -3,7 +3,7 @@ import os from 'os';
 import yaml from 'js-yaml';
 import path from 'path';
 import chalk from 'chalk';
-import { target } from './ezmk';
+import { target, targets } from './ezmk';
 
 export namespace meta
 {
@@ -148,10 +148,10 @@ export namespace meta
             let out = { } as { [key in target]: string[] };
 
             // set build actions
-            for (let p in this.file?.binary)
+            targets.forEach(p =>
             {
-                out[p as target] = [].concat(this.file.binary[p]);
-            }
+                out[p] = [].concat(this.file?.binary?.[p] ?? path.join(this.root, 'build', p, 'bin', this.name + '.dylib'));
+            });
             return out;
         }
     }

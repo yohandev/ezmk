@@ -1,6 +1,15 @@
 # internal
 # DO NOT EDIT
 usage: 0
+built:
+  mac-debug: false
+  mac-release: false
+  win32-debug: false
+  win32-release: false
+  win64-debug: false
+  win64-release: false
+  linux-debug: false
+  linux-release: false
 
 # meta
 name: bgfx

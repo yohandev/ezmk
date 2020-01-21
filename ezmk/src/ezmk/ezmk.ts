@@ -6,11 +6,18 @@ import { meta } from './meta';
 /**
  * all the supported build targets
  */
-export type target = 
-    'mac-debug'   | 'mac-release'   |
-    'win32-debug' | 'win32-release' |
-    'win64-debug' | 'win64-release' |
-    'linux-debug' | 'linux-release' ;
+export const targets =
+[
+    'mac-debug'  , 'mac-release',
+    'win32-debug', 'win32-release',
+    'win64-debug', 'win64-release',
+    'linux-debug', 'linux-release'
+] as const;
+
+/**
+ * all the supported build targets as a type
+ */
+export type target = typeof targets[number];
 
 /**
  * run ezmk
