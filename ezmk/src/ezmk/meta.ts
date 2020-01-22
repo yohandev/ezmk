@@ -108,7 +108,7 @@ export namespace meta
             }
 
             // infer
-            return ["src", "source", "sources", "Source", "Sources", "Src", "SRC"]
+            return ["src", "source", "sources"]
                 .filter(p => fs.existsSync(path.join(this.root, p)));
         }
 
@@ -121,7 +121,7 @@ export namespace meta
             }
 
             // infer
-            let out = ["inc", "include", "Include", "Inc", "INC"]
+            let out = ["inc", "include"]
                 .filter(p => fs.existsSync(path.join(this.root, p)));
                            
             // use src folder if no explicit inc

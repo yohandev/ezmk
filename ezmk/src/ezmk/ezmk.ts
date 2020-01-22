@@ -1,6 +1,7 @@
 import { command } from './commands';
 import './help';
 import './build';
+import './run';
 
 /**
  * run ezmk

@@ -18,11 +18,13 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^3.0.0",
-    "js-yaml": "^3.13.1"
+    "js-yaml": "^3.13.1",
+    "replace-ext": "^1.0.0"
   },
   "devDependencies": {
     "@types/js-yaml": "^3.12.1",
     "@types/node": "^13.1.8",
+    "@types/replace-ext": "0.0.27",
     "nodemon": "^2.0.2",
     "ts-node": "^8.6.1",
     "typescript": "^3.7.4"

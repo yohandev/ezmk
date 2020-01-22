@@ -10,7 +10,7 @@ export namespace command
         readonly name: string;
         readonly args: string;
         readonly desc: string;
-        readonly handler: (args: string[]) => void;
+        readonly handler: (args: string[]) => any;
     }
 
     /**
@@ -21,9 +21,9 @@ export namespace command
     /**
      * run a command
      */
-    export function run(name: string, args: string[]): void
+    export function run(name: string, args: string[]): any
     {
-        find(name).handler(args);
+        return find(name).handler(args);
     }
 
     /**

@@ -1,11 +1,16 @@
 import fs from 'fs';
 import path from 'path';
+import { exec, execSync } from 'child_process';
+import chalk from 'chalk';
 
 export namespace util
 {
     export namespace dir
     {
-        export function walk(dir: string, func: (file: fs.Dirent, walked: string) => void, walked: string = "")
+        /**
+         * walk recursively through a directory
+         */
+        export function walk(dir: string, func: (file: string) => void, walked: string = "")
         {
             const stream = fs.opendirSync(dir);
             let dirent: fs.Dirent;
@@ -20,9 +25,39 @@ export namespace util
                 }
 
                 // call function on files
-                func(dirent, walked);
+                func(path.join(walked, dirent.name));
             }
             stream.closeSync();
+        }
+    
+        /**
+         * make a directory if it doesn't exist
+         */
+        export function mk(path: string)
+        {
+            if (!fs.existsSync(path))
+            {
+                fs.mkdirSync(path, { recursive: true });
+            }
+        }
+    }
+
+    export namespace cmd
+    {
+        /**
+         * execute a command and quit on errors
+         */
+        export function run(cmd: string)
+        {
+            try
+            {
+                execSync(cmd, { stdio: 'inherit' })
+            }
+            catch (err)
+            {
+                console.log(chalk.redBright(err));
+                process.exit();
+            }
         }
     }
 }
