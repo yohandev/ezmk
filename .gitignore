@@ -4,3 +4,4 @@ ezmk-test/entt.git
 .DS_Store
 ezmk/bin
 .vscode
+ezmk-test-cacheless/build
