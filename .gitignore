@@ -1,7 +1,6 @@
 ezmk/node_modules
-ezmk-test/build
+test/*/build
 ezmk-test/entt.git
 .DS_Store
 ezmk/bin
 .vscode
-ezmk-test-cacheless/build
