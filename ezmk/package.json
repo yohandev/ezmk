@@ -2,9 +2,10 @@
   "name": "ezmk",
   "version": "1.0.0",
   "description": "easy make(ezmk) --> easily build your c/c++ projects",
-  "main": "./lib/index.js",
+  "repository": "github.com/NahoyGames/ezmk",
+  "main": "./bin/index.js",
   "bin": {
-    "ezmk": "./lib/index.js"
+    "ezmk": "./bin/index.js"
   },
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec \"npm run build\"",
@@ -17,22 +18,12 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^3.0.0",
-    "clear": "^0.1.0",
-    "command-exists": "^1.2.8",
-    "commander": "^4.1.0",
-    "fs": "0.0.1-security",
-    "hasbin": "^1.2.3",
-    "nodegit": "^0.26.4",
-    "path": "^0.12.7",
-    "readline-sync": "^1.4.10",
+    "js-yaml": "^3.13.1",
     "replace-ext": "^1.0.0"
   },
   "devDependencies": {
-    "@types/clear": "^0.1.0",
-    "@types/command-exists": "^1.2.0",
-    "@types/node": "^13.1.6",
-    "@types/nodegit": "^0.26.1",
-    "@types/readline-sync": "^1.4.3",
+    "@types/js-yaml": "^3.12.1",
+    "@types/node": "^13.1.8",
     "@types/replace-ext": "0.0.27",
     "nodemon": "^2.0.2",
     "ts-node": "^8.6.1",

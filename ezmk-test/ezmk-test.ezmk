@@ -1,0 +1,9 @@
+# meta
+name: ezmk-test
+description: tester project for ezmk
+website: https://github.com/NahoyGames/ezmk
+author: https://github.com/NahoyGames
+license: ISC
+
+# project
+dependencies: [ 'bgfx' ]

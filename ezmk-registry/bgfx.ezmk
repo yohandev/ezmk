@@ -1,0 +1,47 @@
+# internal
+# DO NOT EDIT
+usage: 0
+built:
+  mac-debug: false
+  mac-release: false
+  win32-debug: false
+  win32-release: false
+  win64-debug: false
+  win64-release: false
+  linux-debug: false
+  linux-release: false
+
+# meta
+name: bgfx
+description: Cross-platform, graphics API agnostic, "Bring Your Own Engine/Framework" style rendering library.
+website: https://bkaradzic.github.io/bgfx/overview.html
+author: https://github.com/bkaradzic
+license: BSD 2-Clause
+
+# repos
+git: [ 'https://github.com/bkaradzic/bgfx', 'https://github.com/bkaradzic/bx', 'https://github.com/bkaradzic/bimg' ]
+
+# project
+include: bgfx/include/
+
+# build
+build:
+  mac-debug: [ 'cd bgfx', 'make osx-debug64' ]
+  mac-release: [ 'cd bgfx', 'make osx-release64' ]
+  win32-debug: [ 'cd bgfx', 'make vs2017-debug32' ]
+  win32-release: [ 'cd bgfx', 'make vs2017-release32' ]
+  win64-debug: [ 'cd bgfx', 'make vs2017-debug64' ]
+  win64-release: [ 'cd bgfx', 'make vs2017-release64' ]
+  linux-debug: [ 'cd bgfx', 'make linux-debug64' ]
+  linux-release: [ 'cd bgfx', 'make linux-release64' ]
+
+# binaries
+binary:
+  mac-debug: 'bgfx/.build/osx64_clang/bin/libbgfx-shared-libDebug.dylib'
+  mac-release: 'bgfx/.build/osx64_clang/bin/libbgfx-shared-libRelease.dylib'
+  win32-debug: 'TODO'
+  win32-release: 'TODO'
+  win64-debug: 'TODO'
+  win64-release: 'TODO'
+  linux-debug: 'TODO'
+  linux-release: 'TODO'
